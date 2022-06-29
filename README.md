@@ -11,3 +11,4 @@ Create by [Arthur Venicio](https://www.linkedin.com/in/arthurvenicio/), just to 
 - [React](https://reactjs.org/)
 - [React Native](https://reactnative.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
+- [Expo](https://expo.dev/)
