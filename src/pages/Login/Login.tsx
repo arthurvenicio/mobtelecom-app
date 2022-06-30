@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, ActivityIndicator } from "react-native";
 import Button from "../../components/Button";
 import LoginArea from "../../components/LoginArea";
 import { useNavigation } from "@react-navigation/native";
@@ -32,7 +32,7 @@ export const Login = (): JSX.Element => {
     return (
       <View style={styles.container}>
         <StatusBar style="auto" />
-        <Text style={styles.title}>Carregando</Text>
+        <ActivityIndicator size="large" color="#ffff" />
       </View>
     );
   }
