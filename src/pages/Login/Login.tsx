@@ -21,7 +21,7 @@ export const Login = (): JSX.Element => {
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
-    }, 1000);
+    }, 3000);
 
     if (data.document === FAKE_DOCUMENT && data.password === FAKE_PASSWORD) {
       navegation.navigate("HomePage" as never);

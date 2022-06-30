@@ -1,11 +1,6 @@
-import { Dispatch, SetStateAction } from "react";
-import {
-  View,
-  StyleSheet,
-  TextInput,
-  NativeSyntheticEvent,
-  TextInputChangeEventData,
-} from "react-native";
+import { Dispatch, SetStateAction, useState } from "react";
+import { View, StyleSheet, TextInput } from "react-native";
+import { TextInputMask } from "react-native-masked-text";
 
 type AreaPropsType = {
   data: LoginDataType;
@@ -18,8 +13,12 @@ type LoginDataType = {
 };
 
 export const LoginArea = ({ data, setData }: AreaPropsType): JSX.Element => {
+  const [document, setDocument] = useState("");
+
   const handleOnChangeDocument = (value: string) => {
-    setData({ ...data, document: value });
+    const unmask = value.replace(/\D/g, "");
+    setDocument(value);
+    setData({ ...data, document: unmask });
   };
 
   const handleOnChangePassword = (value: string) => {
@@ -29,12 +28,13 @@ export const LoginArea = ({ data, setData }: AreaPropsType): JSX.Element => {
   return (
     <>
       <View style={styles.menu}>
-        <TextInput
+        <TextInputMask
           style={styles.input}
-          placeholder="CPF ou CNPJ"
+          type="cpf"
+          placeholder="CPF"
           placeholderTextColor="#ffffffc5"
+          value={document}
           onChangeText={handleOnChangeDocument}
-          keyboardType="numeric"
         />
         <TextInput
           style={styles.input}
@@ -58,6 +58,7 @@ const styles = StyleSheet.create({
   },
   title: {},
   input: {
+    color: "#ffff",
     borderColor: "#fff",
     padding: 10,
   },
